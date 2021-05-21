@@ -5,14 +5,14 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.4.5</version>
+		<version>2.5.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.ufps.equipo</groupId>
-	<artifactId>microservicio_equipo</artifactId>
+	<groupId>com.ufps.jugador</groupId>
+	<artifactId>microservicio_jugador</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>microservicio_equipo</name>
-	<description>Microservicio equipos</description>
+	<name>microservicio_jugador</name>
+	<description>Microservicio jugador</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
