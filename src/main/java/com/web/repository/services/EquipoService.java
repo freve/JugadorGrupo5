@@ -9,4 +9,8 @@ public interface EquipoService {
 	public List<Equipo> findAll();
 	
 	public Equipo save(Equipo equipo);
+	
+	public Equipo findById(int id);
+	
+	public String delete(int id);
 }

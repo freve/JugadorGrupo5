@@ -3,6 +3,8 @@ package com.web.entities;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 /**
  * The persistent class for the equipo database table.
@@ -22,6 +24,7 @@ public class Equipo implements Serializable {
 	private String direccion;
 
 	@Lob
+	@JsonIgnore
 	private byte[] escudo;
 
 	@Column(name="id_club")
@@ -32,9 +35,10 @@ public class Equipo implements Serializable {
 
 	private String nombre;
 
-	private int telefono;
+	private String telefono;
 
 	//bi-directional many-to-one association to Categoria
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="id_categoria")
 	private Categoria categoria;
@@ -98,11 +102,11 @@ public class Equipo implements Serializable {
 		this.nombre = nombre;
 	}
 
-	public int getTelefono() {
+	public String getTelefono() {
 		return this.telefono;
 	}
 
-	public void setTelefono(int telefono) {
+	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
 

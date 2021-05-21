@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -67,4 +68,39 @@ public class EquipoController {
 			return new ResponseEntity<Map<String,Object>>(map,HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
+	
+	@GetMapping("/{idEquipo}")
+	public ResponseEntity<?>listar(@PathVariable int idEquipo){
+		
+		try {
+			Equipo e = equipoService.findById(idEquipo);
+			Map <String,Object> map =new HashMap <String, Object>();
+			map.put("equipo", e);
+			return new ResponseEntity<Map<String,Object>>(map,HttpStatus.FOUND);
+		} catch (DataAccessException | InternalError e) {
+			Map <String,Object> map =new HashMap <String, Object>();
+			map.put("mensaje", "Equipo no encontrado!");
+			map.put("error", e.getCause().getMessage());
+			return new ResponseEntity<Map<String,Object>>(map,HttpStatus.NOT_FOUND);
+		}
+				
+	}
+
+	
+	@DeleteMapping("/{idEquipo}")
+	public ResponseEntity<?> eliminar(@PathVariable int idEquipo){
+	
+		try {
+			 equipoService.delete(idEquipo);
+			Map <String,Object> map =new HashMap <String, Object>();
+			map.put("mensaje", "Equipo eliminado!");
+			return new ResponseEntity<Map<String,Object>>(map,HttpStatus.OK);
+		} catch (DataAccessException | InternalError e) {
+			Map <String,Object> map =new HashMap <String, Object>();
+			map.put("mensaje", "Equipo no pudo ser eliminado!");
+			map.put("error", e.getCause().getMessage());
+			return new ResponseEntity<Map<String,Object>>(map,HttpStatus.NOT_FOUND);
+		}
+	}
+	
 }
