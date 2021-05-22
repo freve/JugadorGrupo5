@@ -21,8 +21,6 @@ public class Jugador implements Serializable {
 
 	private String apellido;
 
-	private int celular;
-
 	private String correo;
 
 	private String direccion;
@@ -38,7 +36,7 @@ public class Jugador implements Serializable {
 
 	private String nombre;
 
-	private int telefono;
+	private String telefono;
 
 	//bi-directional many-to-one association to FichaJugador
 	@OneToMany(mappedBy="jugador")
@@ -61,14 +59,6 @@ public class Jugador implements Serializable {
 
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
-	}
-
-	public int getCelular() {
-		return this.celular;
-	}
-
-	public void setCelular(int celular) {
-		this.celular = celular;
 	}
 
 	public String getCorreo() {
@@ -119,11 +109,11 @@ public class Jugador implements Serializable {
 		this.nombre = nombre;
 	}
 
-	public int getTelefono() {
+	public String getTelefono() {
 		return this.telefono;
 	}
 
-	public void setTelefono(int telefono) {
+	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
 
