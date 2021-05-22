@@ -10,5 +10,7 @@ public interface JugadorService {
 	public Jugador save(Jugador jugador);
 	public Jugador findById(int id);
 	public String delete(int id);
+	public List<Jugador> listarPorEquipo(int idEquipo);
+	
 
 }

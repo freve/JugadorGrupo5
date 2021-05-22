@@ -57,4 +57,14 @@ public class JugadorServiceImpl implements JugadorService {
 		return null;
 	}
 
+	@Override
+	public List<Jugador> listarPorEquipo(int idEquipo) {
+		try {
+			return jugadorDao.listarPorEquipo(idEquipo);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return null;
+	}
+
 }
