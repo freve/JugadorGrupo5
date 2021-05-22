@@ -67,6 +67,25 @@ public class JugadorController {
 		
 	}
 	
+	@GetMapping("/listar/{idEquipo}")
+	public ResponseEntity<?> jugadoresEquipo(@PathVariable int idEquipo){
+		Map <String,Object> map =new HashMap <String, Object>();
+		List<Jugador> jugadores = jugadorService.listarPorEquipo(idEquipo);
+		try {			
+			if(jugadores.isEmpty()) {			
+				map.put("mensaje", "No existen jugadores de ese equipo!");
+				return new ResponseEntity<Map<String,Object>>(map,HttpStatus.NOT_FOUND);
+			}
+			map.put("jugadores", jugadores);
+			return new ResponseEntity<Map<String,Object>>(map,HttpStatus.OK);
+		} catch (DataAccessException | InternalError e) {
+			map.put("mensaje", "hubo un error inesperado!");
+			map.put("error", e.getCause().getMessage());
+			return new ResponseEntity<Map<String,Object>>(map,HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
+	
 	@GetMapping("/{idJugador}")
 	public ResponseEntity<?> listar(@PathVariable int idJugador){
 		Map <String,Object> mapa =new HashMap <String, Object>();
