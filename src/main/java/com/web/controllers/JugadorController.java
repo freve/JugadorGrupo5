@@ -77,8 +77,8 @@ public class JugadorController {
 				map.put("mensaje", "No existen jugadores de ese equipo!");
 				return new ResponseEntity<Map<String,Object>>(map,HttpStatus.NOT_FOUND);
 			}
-			map.put("jugadores", jugadores);
-			return new ResponseEntity<Map<String,Object>>(map,HttpStatus.OK);
+			
+			return new ResponseEntity<List<Jugador>>(jugadores,HttpStatus.OK);
 		} catch (DataAccessException | InternalError e) {
 			map.put("mensaje", "hubo un error inesperado!");
 			map.put("error", e.getCause().getMessage());

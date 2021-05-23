@@ -1,18 +1,25 @@
 import styles from './ListDataSheet.module.css'
-import  { getJugadores }  from '../utils/api'
-import { useState, useEffect } from 'react'
+import { getJugadoresEquipo } from '../utils/api'
+import { useState } from 'react'
 export function ListDataSheet() {
     const [idEquipo, setIdEquipo] = useState(0);
     const [jugadores, setJugadores] = useState([]);
-    useEffect(() => {
-        getJugadores().then(data => setJugadores(data))
-    }, [])
+
+    const onChange = (e) => {
+        setIdEquipo(e.target.value)
+    }
+
+    const listar = (e) => {
+        e.preventDefault()
+        getJugadoresEquipo(idEquipo).then(data => data === undefined ? setJugadores([]) : setJugadores(data))
+    }
+
     return (
         <div className={styles.container}>
-            <form>
+            <form onSubmit={listar} >
                 <label className={styles.label} htmlFor="team">Equipo</label>
                 <div className={styles.divipt}>
-                    <input className={styles.ipt} id="team" name="team" type="search" />
+                    <input onChange={onChange} className={styles.ipt} id="team" name="idEquipo" type="number" />
                     <button>
                         <svg xmlns="http://www.w3.org/2000/svg" className={styles.icon} viewBox="0 0 20 20" fill="currentColor">
                             <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" />
@@ -32,10 +39,10 @@ export function ListDataSheet() {
                                 <th>Acciones</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="body">
                             {
-                                jugadores.map((data) => (
-                                    <tr>
+                                jugadores.map((data, key) => (
+                                    <tr key={key}>
                                         <td>
                                             <h5> {data.nombre} {data.apellido} </h5>
                                         </td>
