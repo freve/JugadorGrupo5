@@ -23,6 +23,7 @@ import com.web.repository.services.JugadorService;
 
 @RestController
 @RequestMapping("/jugador")
+@CrossOrigin
 public class JugadorController {
 
 	@Autowired
