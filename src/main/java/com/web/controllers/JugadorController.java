@@ -120,6 +120,7 @@ public class JugadorController {
 		}
 	}
 	
+	
 	@GetMapping("/prueba")
 	public ResponseEntity<?> prueba(){
 		return equipoService.listar(3);

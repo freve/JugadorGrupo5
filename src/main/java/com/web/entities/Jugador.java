@@ -157,6 +157,7 @@ public class Jugador implements Serializable {
 		this.consumo = consumo;
 	}
 
+	
 	public String getTallaCamisa() {
 		return tallaCamisa;
 	}
@@ -180,6 +181,8 @@ public class Jugador implements Serializable {
 	public void setTallaZapato(String tallaZapato) {
 		this.tallaZapato = tallaZapato;
 	}
+	
+	
 
 	public List<Lesion> getLesions() {
 		return lesions;
@@ -188,5 +191,5 @@ public class Jugador implements Serializable {
 	public void setLesions(List<Lesion> lesions) {
 		this.lesions = lesions;
 	}
-
+	
 }
