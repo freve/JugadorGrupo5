@@ -10,4 +10,5 @@ public interface JugadorClienteRest {
 
 	@GetMapping("/{idEquipo}")
 	public ResponseEntity<?> listar(@PathVariable int idEquipo);
+	
 }

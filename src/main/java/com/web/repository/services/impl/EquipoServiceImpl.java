@@ -17,7 +17,4 @@ public class EquipoServiceImpl implements EquipoService{
 	public ResponseEntity<?> listar(int idEquipo) {
 		return jugadorRest.listar(idEquipo);
 	}
-	
-	
-
 }

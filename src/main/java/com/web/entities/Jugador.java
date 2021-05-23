@@ -37,11 +37,27 @@ public class Jugador implements Serializable {
 	private String nombre;
 
 	private String telefono;
+	
+	@Column(name="tipo_sangre")
+	private String tipoSangre;
 
-	//bi-directional many-to-one association to FichaJugador
+	private String hemoglobina;
+
+	private String consumo;
+
+	@Column(name="talla_camisa")
+	private String tallaCamisa;
+	
+	@Column(name="talla_pantaloneta")
+	private String tallaPantaloneta;
+	
+	@Column(name="talla_zapato")
+	private String tallaZapato;
+	
+	//bi-directional many-to-one association to Lesion
 	@OneToMany(mappedBy="jugador")
-	private List<FichaJugador> fichaJugadors;
-
+	private List<Lesion> lesions;
+	
 	public Jugador() {
 	}
 
@@ -117,26 +133,60 @@ public class Jugador implements Serializable {
 		this.telefono = telefono;
 	}
 
-	public List<FichaJugador> getFichaJugadors() {
-		return this.fichaJugadors;
+	public String getTipoSangre() {
+		return tipoSangre;
 	}
 
-	public void setFichaJugadors(List<FichaJugador> fichaJugadors) {
-		this.fichaJugadors = fichaJugadors;
+	public void setTipoSangre(String tipoSangre) {
+		this.tipoSangre = tipoSangre;
 	}
 
-	public FichaJugador addFichaJugador(FichaJugador fichaJugador) {
-		getFichaJugadors().add(fichaJugador);
-		fichaJugador.setJugador(this);
-
-		return fichaJugador;
+	public String getHemoglobina() {
+		return hemoglobina;
 	}
 
-	public FichaJugador removeFichaJugador(FichaJugador fichaJugador) {
-		getFichaJugadors().remove(fichaJugador);
-		fichaJugador.setJugador(null);
+	public void setHemoglobina(String hemoglobina) {
+		this.hemoglobina = hemoglobina;
+	}
 
-		return fichaJugador;
+	public String getConsumo() {
+		return consumo;
+	}
+
+	public void setConsumo(String consumo) {
+		this.consumo = consumo;
+	}
+
+	public String getTallaCamisa() {
+		return tallaCamisa;
+	}
+
+	public void setTallaCamisa(String tallaCamisa) {
+		this.tallaCamisa = tallaCamisa;
+	}
+
+	public String getTallaPantaloneta() {
+		return tallaPantaloneta;
+	}
+
+	public void setTallaPantaloneta(String tallaPantaloneta) {
+		this.tallaPantaloneta = tallaPantaloneta;
+	}
+
+	public String getTallaZapato() {
+		return tallaZapato;
+	}
+
+	public void setTallaZapato(String tallaZapato) {
+		this.tallaZapato = tallaZapato;
+	}
+
+	public List<Lesion> getLesions() {
+		return lesions;
+	}
+
+	public void setLesions(List<Lesion> lesions) {
+		this.lesions = lesions;
 	}
 
 }
