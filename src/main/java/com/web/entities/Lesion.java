@@ -32,8 +32,8 @@ public class Lesion implements Serializable {
 
 	//bi-directional many-to-one association to FichaJugador
 	@ManyToOne
-	@JoinColumn(name="id_ficha_jugador")
-	private FichaJugador fichaJugador;
+	@JoinColumn(name="id_jugador")
+	private Jugador jugador;
 
 	public Lesion() {
 	}
@@ -78,12 +78,12 @@ public class Lesion implements Serializable {
 		this.tratamiento = tratamiento;
 	}
 
-	public FichaJugador getFichaJugador() {
-		return this.fichaJugador;
+	public Jugador getJugador() {
+		return this.jugador;
 	}
 
-	public void setFichaJugador(FichaJugador fichaJugador) {
-		this.fichaJugador = fichaJugador;
+	public void setFichaJugador(Jugador jugador) {
+		this.jugador = jugador;
 	}
 
 }

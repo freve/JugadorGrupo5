@@ -83,8 +83,7 @@ public class JugadorController {
 			return new ResponseEntity<Map<String,Object>>(map,HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-	
-	
+		
 	@GetMapping("/{idJugador}")
 	public ResponseEntity<?> listar(@PathVariable int idJugador){
 		Map <String,Object> mapa =new HashMap <String, Object>();
