@@ -103,20 +103,7 @@ public class JugadorController {
 		}
 	}
 	
-	@DeleteMapping("/{idJugador}")
-	public ResponseEntity<?> eliminar(@PathVariable int idJugador){
-		try {
-			 jugadorService.delete(idJugador);
-				Map <String,Object> map =new HashMap <String, Object>();
-				map.put("mensaje", "Jugador eliminado!");
-				return new ResponseEntity<Map<String,Object>>(map,HttpStatus.OK);
-		} catch (DataAccessException | InternalError e) {
-			Map <String,Object> map =new HashMap <String, Object>();
-			map.put("mensaje", "Jugador no pudo ser eliminado!");
-			map.put("error", e.getCause().getMessage());
-			return new ResponseEntity<Map<String,Object>>(map,HttpStatus.NOT_FOUND);
-		}
-	}
+	
 	
 	
 	@GetMapping("/prueba")

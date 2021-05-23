@@ -181,6 +181,8 @@ public class Jugador implements Serializable {
 	public void setTallaZapato(String tallaZapato) {
 		this.tallaZapato = tallaZapato;
 	}
+	
+	
 
 	public List<Lesion> getLesions() {
 		return lesions;
