@@ -4,19 +4,18 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Form } from './Components/Form';
 import { ListDataSheet } from './Components/ListDataSheet';
 import { Example } from './Components/Example';
-import { useState } from 'react'
 function App() {
   return (
     <Router>
       <div className="container">
         <Navbar />
         <Switch>
-          <Route path="/modificar">
+          <Route path="/lesion/listar">
             <Example />
           </Route>
-          <Route path="/eliminar">
+          <Route path="/lesion">
           </Route>
-          <Route path="/listar">
+          <Route path="/ficha/listar">
             <ListDataSheet />
           </Route>
           <Route path="/">

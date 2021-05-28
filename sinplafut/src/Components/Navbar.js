@@ -21,14 +21,14 @@ export function Navbar() {
                     <Link to="/" className={styles.link}>
                         <li className={styles.menu_item}>Crear Ficha</li>
                     </Link>
-                    <Link to="/modificar" className={styles.link}>
-                        <li className={styles.menu_item}>Modificar Ficha</li>
-                    </Link>
-                    <Link to="/eliminar" className={styles.link}>
-                        <li className={styles.menu_item}>Eliminar Ficha</li>
-                    </Link>
-                    <Link to="/listar" className={styles.link}>
+                    <Link to="/ficha/listar" className={styles.link}>
                         <li className={styles.menu_item}>Listar Ficha</li>
+                    </Link>
+                    <Link to="/lesion" className={styles.link}>
+                        <li className={styles.menu_item}>Crear Lesion</li>
+                    </Link>
+                    <Link to="/lesion/listar" className={styles.link}>
+                        <li className={styles.menu_item}>Listar Lesion</li>
                     </Link>
                 </ul>
             </div>
