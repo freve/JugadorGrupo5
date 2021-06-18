@@ -1,11 +1,19 @@
 
 const API_URL = "http://localhost:8081/equipo"
+const API_URL_CATEGORIA = "http://localhost:8081/categoria"
 const API_URL_JUGADOR = "http://localhost:8082/jugador/"
 const API_URL_JUGADOR_LESION = "http://localhost:8082/lesion/"
 const API_URL_JUGADOR_EQUIPO = "http://localhost:8082/jugador/listar/"
 const API_URL_FICHA_JUGADOR = "http://localhost:8082/jugador/save/"
 export function get() {
     return fetch(API_URL, {
+        headers: {
+            "Content-Type": "application/json;charset=utf-8",
+        },
+    }).then((response) => response.json())
+}
+export function getCategorias() {
+    return fetch(API_URL_CATEGORIA, {
         headers: {
             "Content-Type": "application/json;charset=utf-8",
         },

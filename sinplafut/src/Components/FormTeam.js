@@ -1,12 +1,22 @@
 import styles from './Form.module.css'
+import { getCategorias } from '../utils/api'
+import { useState,useEffect } from 'react'
 export function FormTeam() {
+    const [categoria, setCategoria] = useState([])
+    const obtenerCategoria = () => {
+        getCategorias().then(data => setCategoria(data))
+    }
+    useEffect(() => {
+        obtenerCategoria();
+    }, []);
+    
     const enviarForm = (e) => {
 
         e.preventDefault();
         var dataForm = new FormData(document.forms.namedItem("formulario"));
 
         var req = new XMLHttpRequest();
-        req.open("POST", "http://localhost:8081/equipo/save/1", true);
+        req.open("POST", "http://localhost:8081/equipo/save/" + document.getElementById("cat").value, true);
 
         req.onload = function (oEvent) {
             if (req.status === 201) {
@@ -55,7 +65,17 @@ export function FormTeam() {
                                     <label className={styles.label} htmlFor="imagen">Escudo</label>
                                     <input className={styles.ipt} id="imagen" name="imagen" accept="image/*" type="file" required />
                                 </div>
+
+                                <div className={styles.col_3_6}>
+                                    <label className={styles.label} htmlFor="cat">Estado</label>
+                                    <select  id="cat" className={styles.ipt}>
+                                        {categoria.map(data => (
+                                            <option key={data.id} value={data.id}>{data.nombre}</option>
+                                        ))}
+                                    </select>
+                                </div>
                             </div>
+                            
                             <input type="hidden" value="1" name="idClub" />
                             <input type="hidden" value="1" name="idCuerpoTecnico" />
                         </div>

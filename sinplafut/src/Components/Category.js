@@ -1,22 +1,30 @@
 import styles from './Form.module.css'
+import * as FormData from "form-data";
 export function Category() {
-    const enviarForm = (e) => {
+    const enviarForm2 = (e) => {
 
         e.preventDefault();
-        var dataForm = new FormData(document.forms.namedItem("formulario"));
+        
+        var data = {
+            "nombre": document.getElementById("name").value,
+            "descripcion": document.getElementById("descripcion").value
+        }
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", 'http://localhost:8081/categoria/save', true);
 
-        var req = new XMLHttpRequest();
-        req.open("POST", "http://localhost:8081/categoria/save", true);
+        //Send the proper header information along with the request
+        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 
-        req.onload = function (oEvent) {
-            if (req.status === 201) {
+        xhr.onreadystatechange = function () { // Call a function when the state changes.
+            if (this.readyState === XMLHttpRequest.DONE && this.status === 201) {
+                // Request finished. Do processing here.
                 window.location.replace("/categoria");
-                console.log(req.response);
+                console.log(xhr.response);
             } else {
-                console.log("Status:" + req.status + "Error : " + req.response);
+                console.log("Status:" + xhr.status + "Error : " + xhr.response);
             }
-        };
-        req.send(dataForm);
+        }
+        xhr.send(JSON.stringify(data));
 
     };
     return (
@@ -25,9 +33,9 @@ export function Category() {
             <div className={styles.container_form}>
                 <div className={styles.container_grid}>
                     <form
-                        onSubmit={enviarForm}
+                        onSubmit={enviarForm2}
                         method="POST"
-                        name="formulario" id="register">
+                        name="formulario2" id="register2">
                         <div className={styles.form}>
                             <div className={styles.grid_form}>
                                 <div className={styles.col_3_6}>
@@ -42,12 +50,12 @@ export function Category() {
                                 </div>
 
                             </div>
-                        
+
                         </div>
                     </form>
                 </div>
             </div>
-            <button form="register" className={styles.btn_Create}>Crear</button>
+            <button form="register2" className={styles.btn_Create}>Crear</button>
         </div>
     )
 }
