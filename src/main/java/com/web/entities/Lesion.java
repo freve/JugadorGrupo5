@@ -2,6 +2,9 @@ package com.web.entities;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.Date;
 
 
@@ -33,6 +36,7 @@ public class Lesion implements Serializable {
 	//bi-directional many-to-one association to FichaJugador
 	@ManyToOne
 	@JoinColumn(name="id_jugador")
+	@JsonIgnore
 	private Jugador jugador;
 
 	public Lesion() {
