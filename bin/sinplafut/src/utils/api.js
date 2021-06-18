@@ -1,7 +1,6 @@
 
 const API_URL = "http://localhost:8081/equipo"
 const API_URL_JUGADOR = "http://localhost:8082/jugador/"
-const API_URL_JUGADOR_LESION = "http://localhost:8082/lesion/"
 const API_URL_JUGADOR_EQUIPO = "http://localhost:8082/jugador/listar/"
 const API_URL_FICHA_JUGADOR = "http://localhost:8082/jugador/save/"
 export function get() {
@@ -53,21 +52,6 @@ export function crearFicha(idEquipo,config) {
 export function eliminarFicha(idJug) {
     
     return fetch(API_URL_JUGADOR + idJug, {method: "DELETE"} )
-        .then(function (response) {
-            if (response.ok) {
-                return response.json()
-            } else {
-                throw alert("Error en la llamada Ajax");
-            }
-
-        })
-        .catch(function (err) {
-            console.log(err);
-        });
-}
-export function Lesiones(idJug) {
-    
-    return fetch(API_URL_JUGADOR_LESION + idJug)
         .then(function (response) {
             if (response.ok) {
                 return response.json()

@@ -51,37 +51,12 @@
     display: block;
     font-weight: bold;
     cursor: pointer;
-    overflow: hidden;
 }
-.menu_item:hover .submenu_ul {
-    display: block;
-}
-.submenu_item:hover {
-    background-color: #ddd;
-}
-.submenu_ul{
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    list-style: none;
-    min-width: 160px;
-    padding: 10px;
-    z-index: 1;
-}
-.submenu_item{
-    display: block;
-    font-weight: bold;
-    cursor: pointer;
-    width: 100%;
-}
-.link,.submenu_item{
+.link{
     text-decoration: none;
-    padding: 10px;
 }
 .link:visited,
-.link:link,
-.submenu_item:visited,
-.submenu_item:link{
+.link:link{
     color: black;
 }
 /* lg */
@@ -101,12 +76,9 @@
         display: flex;
         align-items: center;
         flex-grow: 1;
+        justify-content: space-between;
     }
     .menu_item{
         display: inline-block;
-        margin-right: 80px;
-    }
-    .link{
-        padding: 0px;
     }
   }

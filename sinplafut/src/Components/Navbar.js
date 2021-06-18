@@ -18,18 +18,36 @@ export function Navbar() {
             </div>
             <div id="menu" className={styles.menu}>
                 <ul className={styles.menu_ul}>
-                    <Link to="/" className={styles.link}>
-                        <li className={styles.menu_item}>Crear Ficha</li>
-                    </Link>
-                    <Link to="/ficha/listar" className={styles.link}>
-                        <li className={styles.menu_item}>Listar Ficha</li>
-                    </Link>
-                    <Link to="/lesion" className={styles.link}>
-                        <li className={styles.menu_item}>Crear Lesion</li>
-                    </Link>
-                    <Link to="/lesion/listar" className={styles.link}>
-                        <li className={styles.menu_item}>Listar Lesion</li>
-                    </Link>
+                    <li className={styles.menu_item}>Jugador
+                        <ul className={styles.submenu_ul}>
+                            <Link to="/" className={styles.submenu_item}>
+                                Crear Ficha
+                            </Link>
+                            <Link to="/ficha/listar" className={styles.submenu_item}>
+                                Listar por equipo
+                            </Link>
+                        </ul>
+                    </li>
+
+                    <li className={styles.menu_item}>Equipo
+                        <ul className={styles.submenu_ul}>
+                            <Link to="/equipo" className={styles.submenu_item}>
+                                Crear
+                            </Link>
+                            <Link to="/equipo/listar" className={styles.submenu_item}>
+                                Listar
+                            </Link>
+                        </ul>
+                    </li>
+
+                    <li className={styles.menu_item}>
+                        Categoria
+                        <ul className={styles.submenu_ul}>
+                            <Link to="/categoria" className={styles.submenu_item}>
+                                Crear
+                            </Link>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>

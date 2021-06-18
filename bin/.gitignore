@@ -1,0 +1,56 @@
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+!**/src/main/resources/application.properties
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+# dependencies
+sinplafut/node_modules
+sinplafut/.pnp
+sinplafut/.pnp.js
+
+# testing
+sinplafut/coverage
+
+# production
+sinplafut/build
+
+# misc
+sinplafut/.DS_Store
+sinplafut/.env.local
+sinplafut/.env.development.local
+sinplafut/.env.test.local
+sinplafut/.env.production.local
+
+sinplafut/npm-debug.log*
+sinplafut/yarn-debug.log*
+sinplafut/yarn-error.log*

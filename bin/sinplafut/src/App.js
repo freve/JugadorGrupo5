@@ -3,29 +3,22 @@ import { Navbar } from './Components/Navbar';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Form } from './Components/Form';
 import { ListDataSheet } from './Components/ListDataSheet';
-import { FormTeam } from './Components/FormTeam';
-import { ListTeam } from './Components/ListTeam';
-import { Category } from './Components/Category';
-
+import { Example } from './Components/Example';
 function App() {
   return (
     <Router>
       <div className="container">
         <Navbar />
         <Switch>
-          <Route exact path="/equipo">
-            <FormTeam />
+          <Route path="/lesion/listar">
+            <Example />
           </Route>
-          <Route exact path="/equipo/listar">
-            <ListTeam />
+          <Route path="/lesion">
           </Route>
-          <Route exact path="/ficha/listar">
+          <Route path="/ficha/listar">
             <ListDataSheet />
           </Route>
-          <Route exact path="/categoria">
-            <Category />
-          </Route>
-          <Route exact path="/">
+          <Route path="/">
             <Form />
           </Route>
 
